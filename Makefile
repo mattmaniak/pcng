@@ -7,25 +7,8 @@ CC = g++
 CFLAGS = -Wall -Wextra -pedantic -std=$(LANGSTD)
 GTESTFLAGS = -lgtest -lgtest_main -pthread
 
-SRCDIR = src
-TESTDIR = test
-OBJDIR = obj
-
-OBJS = $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, \
-       $(wildcard $(SRCDIR)/*.cpp))
-
-$(OBJDIR)/%.o: $(SRCDIR)/%.cpp $(SRCDIR)/%.h test analyze
-	mkdir -p $(OBJDIR)
-	$(CC) $(CPPFLAGE) -c -o $@ $<
-
-$(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $^
-	mv $(TARGET) $(APP)
-
-.PHONY: analyze
-analyze:
-	astyle \
-	--style=kr \
+# Qt Coding Style Rules - https://wiki.qt.io/Qt_Coding_Style
+ASTYLEFLAGS = --style=kr \
 	--indent=spaces=4 \
 	--align-pointer=name \
 	--align-reference=name \
@@ -34,7 +17,32 @@ analyze:
 	--max-code-length=100 \
 	--max-instatement-indent=120 \
 	--pad-header \
-	--pad-oper \
+	--pad-oper
+
+SRCDIR = src
+TESTDIR = test
+OBJDIR = obj
+
+OBJS = $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, \
+       $(wildcard $(SRCDIR)/*.cpp))
+
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp $(SRCDIR)/%.h
+	mkdir -p $(OBJDIR)
+	$(CC) $(CPPFLAGE) -c -o $@ $<
+
+$(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) -o $@ $^
+	mv $(TARGET) $(APP)
+
+.PHONY: debug
+debug: test
+debug: analyze
+debug: $(TARGET)
+
+.PHONY: analyze
+analyze:
+	astyle \
+	$(ASTYLEFLAGS) \
 	$(TESTDIR)/* \
 	$(SRCDIR)/*
 
