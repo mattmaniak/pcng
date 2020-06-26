@@ -5,7 +5,7 @@
 TEST(GeneratorTest, GeneratesRandomName)
 {
     Generator generator;
-    std::vector<std::string> _;
+    const std::vector<std::string> _;
 
     ASSERT_EQ(generator.generateName(_, _), "");
 }

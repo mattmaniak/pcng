@@ -11,8 +11,8 @@ std::vector<std::string> loader::load(loader::affix mode)
         file.open("res/prefixes");
         break;
 
-    case sufix:
-        file.open("res/sufixes");
+    case suffix:
+        file.open("res/suffixes");
     }
 
     if (file.is_open()) {

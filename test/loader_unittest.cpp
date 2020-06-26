@@ -2,8 +2,8 @@
 
 #include "../src/loader.cpp"
 
-TEST(LoaderTest, LoadsPrefixesAndSufixes)
+TEST(LoaderTest, LoadsPrefixesAndSuffixes)
 {
-    ASSERT_NE(loader::load(loader::prefix).empty(), true);
-    ASSERT_NE(loader::load(loader::sufix).empty(), true);
+    ASSERT_EQ(loader::load(loader::prefix).empty(), false);
+    ASSERT_EQ(loader::load(loader::suffix).empty(), false);
 }

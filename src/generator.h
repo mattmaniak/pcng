@@ -7,6 +7,7 @@
 
 #include <iostream>
 
+#include "debug.h"
 #include "loader.h"
 
 class Generator
@@ -16,6 +17,6 @@ public:
                              std::vector<std::string>);
 
 private:
-    std::string _sufix;
+    std::string _suffix;
     std::string _prefix;
 };
