@@ -2,7 +2,7 @@
 
 #include "../src/generator.cpp"
 
-TEST(GeneratorTest, Text)
+TEST(GeneratorTest, GeneratesRandomName)
 {
     Generator generator;
     std::vector<std::string> _;
