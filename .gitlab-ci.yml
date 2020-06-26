@@ -1,0 +1,16 @@
+image: ubuntu
+
+stages:
+- update
+- test_and_build
+
+update:
+    stage: update
+    script:
+        - sudo apt update
+        - sudo apt upgrade -y
+        - sudo apt install g++ make libgtest-dev
+        
+test_and_build:
+    stage: test_and_build
+    script: make

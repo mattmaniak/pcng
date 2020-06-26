@@ -1,8 +1,12 @@
 #include <iostream>
 
-#include "generator.h"
+#include "pcng.h"
 
-int main(int argc, char **argv) {
-    std::cout << generator::generateMessage() << std::endl;
+int main(int argc, char **argv)
+{
+    Generator generator;
+    std::cout << generator.generateName(loader::load(loader::prefix),
+                                        loader::load(loader::sufix))
+              << std::endl;
     return 0;
 }

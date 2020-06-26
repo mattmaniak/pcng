@@ -6,17 +6,16 @@ boring.
 I am not responsive for any name resemblances to existing legal entities.
 
 ## Goal
-Remind the C++ development approach after a break.
+Remind the C++11 development basics after a break and learn GoogleTest.
 
 ## Requirements
 
 ### For running:
 - preferably GNU/Linux or POSIX-complaint OS,
 - ```g++```,
-- ```make```.
-
-### Additional for development:
-- ```libgtest-dev```.
+- ```make```,
+- ```libgtest-dev```,
+- ```astyle```.
 
 ## Development
 Use the [Qt Coding Style](https://wiki.qt.io/Qt_Coding_Style).
