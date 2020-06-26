@@ -9,7 +9,7 @@ update:
     script:
         - apt update
         - apt upgrade -y
-        - apt install g++ make libgtest-dev astyle
+        - apt install -y g++ make libgtest-dev astyle
         
 make:
     stage: make
