@@ -2,7 +2,9 @@ image: debian
 
 stages:
 - update
-- make
+- analyze
+- test
+- build
 
 update:
     stage: update
@@ -11,6 +13,14 @@ update:
         - apt upgrade -y
         - apt install -y g++ make libgtest-dev astyle
         
-make:
-    stage: make
+analyze:
+    stage: analyze
+    script: make analyze
+
+test:
+    stage: test
+    script: make test
+
+build:
+    stage: build
     script: make
