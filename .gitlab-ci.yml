@@ -2,15 +2,15 @@ image: ubuntu
 
 stages:
 - update
-- test_and_build
+- make
 
 update:
     stage: update
     script:
-        - sudo apt update
-        - sudo apt upgrade -y
-        - sudo apt install g++ make libgtest-dev
+        - apt update
+        - apt upgrade -y
+        - apt install g++ make libgtest-dev astyle
         
-test_and_build:
-    stage: test_and_build
+make:
+    stage: make
     script: make
