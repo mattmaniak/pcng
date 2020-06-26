@@ -19,4 +19,6 @@ public:
 private:
     std::string _suffix;
     std::string _prefix;
+
+    void _log(loader::affix);
 };
