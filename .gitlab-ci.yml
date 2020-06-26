@@ -12,10 +12,6 @@ update:
         - apt update
         - apt upgrade -y
         - apt install -y g++ make libgtest-dev astyle
-        
-analyze:
-    stage: analyze
-    script: make analyze
 
 test:
     stage: test
