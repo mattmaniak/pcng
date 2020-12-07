@@ -1,4 +1,4 @@
-# Polish Company Name Generator
+# <img src='icon.png' width='32'> Polish Company Name Generator
 Randomly create a name ended with 'x' or 'pol' that is as hard to remember as
 boring.
 
