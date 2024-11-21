@@ -1,7 +1,4 @@
 TARGET = pcng
-APPEXTENSION = app
-APP = $(TARGET).$(APPEXTENSION)
-
 LANGSTD = c++11
 CC = g++
 CFLAGS = -Wall -Wextra -pedantic -std=$(LANGSTD)
@@ -32,7 +29,6 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.cpp $(SRCDIR)/%.h
 
 $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $^
-	mv $(TARGET) $(APP)
 
 .PHONY: debug
 debug: test
@@ -51,8 +47,8 @@ analyze:
 .PHONY: test
 test:
 	$(CC) $(CFLAGS) $(TESTDIR)/$(TARGET)_unittest.cpp $(GTESTFLAGS) \
-	-o $(TARGET).test.$(APPEXTENSION)
-	./$(TARGET).test.$(APPEXTENSION)
+	-o $(TARGET).test
+	./$(TARGET).test
 
 .PHONY: clean
 clean:
